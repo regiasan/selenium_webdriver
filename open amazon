@@ -1,0 +1,15 @@
+package Selenium_sample;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class open_amazon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe" );//telling to use chrome browser and where it is located on my machinel
+	        ChromeDriver regina = new ChromeDriver();// creating a object called driver, chromedriver is a java class
+	        regina.get("https://www.amazon.com"); // apply get command on regina object, it will opne the website
+	        //regina.close();//apply close command on regina object, this will close the website
+	        regina.close();
+	}	
+}
