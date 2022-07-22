@@ -1,0 +1,45 @@
+package Selenium_sample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+// In this code we are trying to perform click on checkbox button in form
+// Locate the checkbox buttons
+// Perform click on buttons and submit
+public class final_checkbox {
+
+	public static void main(String[] args) throws InterruptedException {
+	// setProperty method is used to set the path of driver from system location
+	System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe" );
+	
+	// Intialize value to the driver
+        WebDriver driver = new ChromeDriver();
+		
+	// Using driver object call the get method and pass the website link
+	driver.get("http://training.qaonlinetraining.com/testPage.php");
+		
+	// now we will save the locator of element in WebElement object 
+	WebElement checkboxBoat = driver.findElement(By.xpath("//input[@value='boat']"));
+	//  checkbox bike
+      WebElement checkboxBike = driver.findElement(By.xpath("//input[@value='Bike']"));
+//      checkbox car
+      WebElement checkboxCar = driver.findElement(By.xpath("//input[@value='car']")); // selected by-default
+      // checkbox horse
+      WebElement checkboxHorse = driver.findElement(By.xpath("//input[@value='horse']"));
+      // submit button
+      WebElement submitButton = driver.findElement(By.xpath("//input[@value='Send']"));
+//      selecting all options except car- selected by-default .The car element is clicked by default and value .So no need to perform click on the car element 
+      checkboxBoat.click();
+      checkboxBike.click();
+      checkboxHorse.click();
+      System.out.println("wait 3 seconds and submit and close");
+      submitButton.click();
+	
+	//Thread is a class in java used to hold a part of code for some given time using sleep method.
+      Thread.sleep(3000);
+      driver.close();
+	}
+
+}
